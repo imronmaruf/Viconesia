@@ -23,4 +23,9 @@ class BlogPost extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
+
+    public function blogCategory()
+    {
+        return $this->belongsTo(BlogCategory::class, 'blog_category_id', 'id');
+    }
 }

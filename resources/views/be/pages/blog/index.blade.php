@@ -84,7 +84,7 @@
                                     <td>
                                         <span
                                             class="badge text-white {{ $data->status === 'published' ? 'bg-green' : 'bg-yellow' }}">
-                                            {{ $data->status === 'publish' ? 'Published' : 'Draft' }}
+                                            {{ $data->status === 'published' ? 'Published' : 'Draft' }}
                                         </span>
                                     </td>
 

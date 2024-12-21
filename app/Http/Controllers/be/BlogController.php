@@ -19,11 +19,19 @@ class BlogController extends Controller
         return view('be.pages.blog.index', compact('dataBlog'));
     }
 
+    // public function show($id)
+    // {
+    //     $dataBlog = BlogPost::find($id);
+    //     // dd($dataBlog);
+    //     return view('be.pages.blog.show', compact('dataBlog'));
+    // }
+
+
     public function show($id)
     {
         $dataBlog = BlogPost::find($id);
-        // dd($dataBlog);
-        return view('be.pages.blog.show', compact('dataBlog'));
+        $dataCategory = $dataBlog->blogCategory;
+        return view('be.pages.blog.show', compact('dataBlog', 'dataCategory'));
     }
 
     public function create()

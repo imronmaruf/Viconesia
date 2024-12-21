@@ -27,6 +27,33 @@
     </style>
 @endpush
 
+
+@push('pageHeader')
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <h2 class="page-title">
+                        Blog
+                    </h2>
+                </div>
+                <div class="col-auto ms-auto d-print-none">
+                    <div class="btn-list">
+                        <a href="{{ route('be/blog.index') }}" class="btn btn-secondary d-none d-sm-inline-block">
+                            <i class="ti ti-arrow-left icon"></i>
+                            Kembali
+                        </a>
+                        <a href="{{ route('be/blog.index') }}" class="btn btn-secondary d-sm-none btn-icon">
+                            <i class="ti ti-arrow-left icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endpush
+
+
 @section('content')
     <div class="container-xl mt-3">
         <div class="card">
