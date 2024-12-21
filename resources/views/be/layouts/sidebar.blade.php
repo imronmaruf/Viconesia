@@ -164,11 +164,31 @@
                             Testimonials
                         </a>
                     </div>
-
-
                 </li>
 
-                <li class="nav-item">
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="ti ti-device-desktop-analytics icon"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Blog
+                        </span>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-white active" href="{{ route('be/blog/category.index') }}">
+                            Kategori
+                        </a>
+                        <a class="dropdown-item text-white active" href="{{ route('be/blog.index') }}">
+                            Blog Post
+                        </a>
+                    </div>
+                </li>
+
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="ti ti-news icon"></i>
@@ -177,7 +197,7 @@
                             Blog
                         </span>
                     </a>
-                </li>
+                </li> --}}
 
 
                 <li class="nav-item">

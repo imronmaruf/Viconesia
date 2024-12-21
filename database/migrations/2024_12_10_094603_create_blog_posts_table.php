@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->string('slug', 255)->unique();
+            $table->string('image_path')->nullable();
+            $table->enum('status', ['draft', 'published'])->default('draft');
             $table->timestamps();
+
+            $table->foreignId('blog_category_id')->constrained('blog_categories')->onDelete('cascade');
         });
     }
 

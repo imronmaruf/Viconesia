@@ -5,8 +5,6 @@
 @endpush
 
 @push('css')
-    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/libs/dropzone/dist/dropzone.css"
-        rel="stylesheet" />
 @endpush
 
 @section('content')

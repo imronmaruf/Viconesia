@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\be\BlogController;
 use App\Http\Controllers\be\HeroController;
 use App\Http\Controllers\be\TeamController;
 use App\Http\Controllers\be\UserController;
 use App\Http\Controllers\be\ProfileController;
 use App\Http\Controllers\fe\LandingController;
 use App\Http\Controllers\be\DashboardController;
+use App\Http\Controllers\be\BlogCategoryController;
 use App\Http\Controllers\be\TestimonialsController;
 use App\Http\Controllers\be\UserSettingAccountController;
 
@@ -93,6 +95,28 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/update/{id}', [TestimonialsController::class, 'update'])->name('be/testimonials.update');
         Route::delete('/destroy/{id}', [TestimonialsController::class, 'destroy'])->name('be/testimonials.destroy');
     });
+
+    // Category Blog
+    Route::group(['prefix' => 'be/blog/category'], function () {
+        Route::get('/', [BlogCategoryController::class, 'index'])->name('be/blog/category.index');
+        Route::get('/create', [BlogCategoryController::class, 'create'])->name('be/blog/category.create');
+        Route::post('/store', [BlogCategoryController::class, 'store'])->name('be/blog/category.store');
+        Route::get('/edit/{id}', [BlogCategoryController::class, 'edit'])->name('be/blog/category.edit');
+        Route::put('/update/{id}', [BlogCategoryController::class, 'update'])->name('be/blog/category.update');
+        Route::delete('/destroy/{id}', [BlogCategoryController::class, 'destroy'])->name('be/blog/category.destroy');
+    });
+
+    // Blog
+    Route::group(['prefix' => 'be/blog'], function () {
+        Route::get('/', [BlogController::class, 'index'])->name('be/blog.index');
+        Route::get('/show/{id}', [BlogController::class, 'show'])->name('be/blog.show');
+        Route::get('/create', [BlogController::class, 'create'])->name('be/blog.create');
+        Route::post('/store', [BlogController::class, 'store'])->name('be/blog.store');
+        Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('be/blog.edit');
+        Route::put('/update/{id}', [BlogController::class, 'update'])->name('be/blog.update');
+        Route::delete('/destroy/{id}', [BlogController::class, 'destroy'])->name('be/blog.destroy');
+    });
+
 
     // Route::prefix('data-user')->middleware('can:admin-only')->group(function () {
     //     Route::get('/', [UserController::class, 'index'])->name('data-user.index');
