@@ -5,7 +5,6 @@
 @endpush
 
 @push('css')
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <style>
         .preview-image {
             max-width: auto;
@@ -177,62 +176,7 @@
 @endsection
 
 @push('js')
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    [{
-                        'header': [1, 2, 3, 4, 5, 6, false]
-                    }],
-                    [{
-                        'font': []
-                    }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    ['blockquote', 'code-block'],
-                    [{
-                        'list': 'ordered'
-                    }, {
-                        'list': 'bullet'
-                    }],
-                    [{
-                        'script': 'sub'
-                    }, {
-                        'script': 'super'
-                    }],
-                    [{
-                        'indent': '-1'
-                    }, {
-                        'indent': '+1'
-                    }],
-                    [{
-                        'direction': 'rtl'
-                    }],
-                    [{
-                        'size': ['small', false, 'large', 'huge']
-                    }],
-                    [{
-                        'color': []
-                    }, {
-                        'background': []
-                    }],
-                    [{
-                        'align': []
-                    }],
-                    ['link', 'image'],
-                    ['clean']
-                ]
-            },
-            placeholder: 'Tulis konten blog disini...',
-        });
-
-        // Handle form submission
-        document.getElementById('blogForm').addEventListener('submit', function(e) {
-            var content = document.getElementById('content');
-            content.value = quill.root.innerHTML;
-        });
-
         document.getElementById('title').addEventListener('input', function() {
             var title = this.value;
             var slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');

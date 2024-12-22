@@ -105,8 +105,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
                 <!-- Deskripsi Profil -->
@@ -168,12 +166,6 @@
 @endsection
 
 @push('js')
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            new Dropzone("#dropzone-custom")
-        })
-    </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('editProfileLink').addEventListener('click', function(event) {

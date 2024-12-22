@@ -18,6 +18,7 @@
         "@tabler/icons-webfont": "^3.24.0",
         "datatables.net": "^2.1.8",
         "datatables.net-bs5": "^2.1.8",
+        "quill": "^2.0.3",
         "sweetalert2": "^11.14.5"
     }
 }

@@ -153,7 +153,7 @@
                 </div>
                 <div class="card-footer text-end">
                     <button type="submit" class="btn btn-primary">
-                        <i class="ti ti-checklist"></i> Simpan
+                        <i class="ti ti-checklist me-1"></i> Simpan
                     </button>
                 </div>
             </form>
@@ -161,63 +161,8 @@
     </div>
 @endsection
 @push('js')
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    [{
-                        'header': [1, 2, 3, 4, 5, 6, false]
-                    }],
-                    [{
-                        'font': []
-                    }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    ['blockquote', 'code-block'],
-                    [{
-                        'list': 'ordered'
-                    }, {
-                        'list': 'bullet'
-                    }],
-                    [{
-                        'script': 'sub'
-                    }, {
-                        'script': 'super'
-                    }],
-                    [{
-                        'indent': '-1'
-                    }, {
-                        'indent': '+1'
-                    }],
-                    [{
-                        'direction': 'rtl'
-                    }],
-                    [{
-                        'size': ['small', false, 'large', 'huge']
-                    }],
-                    [{
-                        'color': []
-                    }, {
-                        'background': []
-                    }],
-                    [{
-                        'align': []
-                    }],
-                    ['link', 'image'],
-                    ['clean']
-                ]
-            },
-            placeholder: 'Tulis konten blog disini...',
-        });
-
-        // Handle form submission
-        document.getElementById('blogForm').addEventListener('submit', function(e) {
-            var content = document.getElementById('content');
-            content.value = quill.root.innerHTML;
-        });
-
-        // Handle slug generation
+        // Handle slug
         document.getElementById('title').addEventListener('input', function() {
             const title = this.value;
             const slug = title.toLowerCase()

@@ -10,8 +10,10 @@ use App\Http\Controllers\be\ProfileController;
 use App\Http\Controllers\fe\LandingController;
 use App\Http\Controllers\be\DashboardController;
 use App\Http\Controllers\be\BlogCategoryController;
+use App\Http\Controllers\be\ProductController;
 use App\Http\Controllers\be\TestimonialsController;
 use App\Http\Controllers\be\UserSettingAccountController;
+use GuzzleHttp\Handler\Proxy;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +117,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('be/blog.edit');
         Route::put('/update/{id}', [BlogController::class, 'update'])->name('be/blog.update');
         Route::delete('/destroy/{id}', [BlogController::class, 'destroy'])->name('be/blog.destroy');
+    });
+
+    // Product
+    Route::group(['prefix' => 'be/product'], function () {
+        Route::get('/', [ProductController::class, 'index'])->name('be/product.index');
+        Route::get('/create', [ProductController::class, 'create'])->name('be/product.create');
+        Route::post('/store', [ProductController::class, 'store'])->name('be/product.store');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('be/product.edit');
+        Route::put('/update/{id}', [ProductController::class, 'update'])->name('be/product.update');
+        Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('be/product.destroy');
     });
 
 
