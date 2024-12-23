@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\fe;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
     public function index()
     {
+        // $dataProfile = Profile::first();
         return view('fe.index');
     }
 

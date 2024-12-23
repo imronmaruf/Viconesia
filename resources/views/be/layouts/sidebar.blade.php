@@ -71,10 +71,10 @@
 
                 <!-- Content Dropdown -->
                 <li
-                    class="nav-item {{ Route::is('be/hero.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') ? 'active' : '' }} dropdown">
+                    class="nav-item {{ Route::is('be/hero.*') || Route::is('be/galery.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') ? 'active' : '' }} dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-content" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button"
-                        aria-expanded="{{ Route::is('be/hero.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') ? 'true' : 'false' }}">
+                        aria-expanded="{{ Route::is('be/hero.*') || Route::is('be/galery.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') ? 'true' : 'false' }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="ti ti-device-desktop-analytics icon"></i>
                         </span>
@@ -82,13 +82,15 @@
                     </a>
 
                     <div
-                        class="dropdown-menu {{ Route::is('be/hero.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') ? 'show' : '' }}">
-                        <a class="dropdown-item {{ Route::is('be/hero.*') ? 'active' : '' }}"
+                        class="dropdown-menu {{ Route::is('be/hero.*') || Route::is('be/teams.index') || Route::is('be/testimonials.index') || Route::is('be/galery.*') ? 'show' : '' }}">
+                        <a class="dropdown-item {{ Route::is('be/hero.*') ? 'active text-white' : '' }}"
                             href="{{ route('be/hero.index') }}">Hero</a>
-                        <a class="dropdown-item {{ Route::is('be/teams.index') ? 'active' : '' }}"
+                        <a class="dropdown-item {{ Route::is('be/teams.index') ? 'active text-white' : '' }}"
                             href="{{ route('be/teams.index') }}">Teams</a>
-                        <a class="dropdown-item {{ Route::is('be/testimonials.index') ? 'active' : '' }}"
+                        <a class="dropdown-item {{ Route::is('be/testimonials.index') ? 'active text-white' : '' }}"
                             href="{{ route('be/testimonials.index') }}">Testimonials</a>
+                        <a class="dropdown-item {{ Route::is('be/galery.*') ? 'active text-white' : '' }}"
+                            href="{{ route('be/galery.index') }}">Galery</a>
                     </div>
                 </li>
 
@@ -105,9 +107,9 @@
                     </a>
                     <div
                         class="dropdown-menu  {{ Route::is('be/blog/category.index') || Route::is('be/blog.*') ? 'show' : '' }}">
-                        <a class="dropdown-item {{ Route::is('be/blog/category.index') ? 'active' : '' }}"
+                        <a class="dropdown-item {{ Route::is('be/blog/category.index') ? 'active text-white' : '' }}"
                             href="{{ route('be/blog/category.index') }}">Kategori</a>
-                        <a class="dropdown-item {{ Route::is('be/blog.index') ? 'active' : '' }}"
+                        <a class="dropdown-item {{ Route::is('be/blog.index') ? 'active text-white' : '' }}"
                             href="{{ route('be/blog.index') }}">Blog Post</a>
                     </div>
                 </li>

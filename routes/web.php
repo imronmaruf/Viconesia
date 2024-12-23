@@ -1,19 +1,20 @@
 <?php
 
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\be\BlogController;
 use App\Http\Controllers\be\HeroController;
 use App\Http\Controllers\be\TeamController;
 use App\Http\Controllers\be\UserController;
+use App\Http\Controllers\be\GaleryController;
+use App\Http\Controllers\be\ProductController;
 use App\Http\Controllers\be\ProfileController;
 use App\Http\Controllers\fe\LandingController;
 use App\Http\Controllers\be\DashboardController;
 use App\Http\Controllers\be\BlogCategoryController;
-use App\Http\Controllers\be\ProductController;
 use App\Http\Controllers\be\TestimonialsController;
 use App\Http\Controllers\be\UserSettingAccountController;
-use GuzzleHttp\Handler\Proxy;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,6 +128,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('be/product.edit');
         Route::put('/update/{id}', [ProductController::class, 'update'])->name('be/product.update');
         Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('be/product.destroy');
+    });
+
+    // Galery
+    Route::group(['prefix' => 'be/galery'], function () {
+        Route::get('/', [GaleryController::class, 'index'])->name('be/galery.index');
+        Route::get('/create', [GaleryController::class, 'create'])->name('be/galery.create');
+        Route::post('/store', [GaleryController::class, 'store'])->name('be/galery.store');
+        Route::get('/edit/{id}', [GaleryController::class, 'edit'])->name('be/galery.edit');
+        Route::put('/update/{id}', [GaleryController::class, 'update'])->name('be/galery.update');
+        Route::delete('/destroy/{id}', [GaleryController::class, 'destroy'])->name('be/galery.destroy');
     });
 
 
