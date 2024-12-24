@@ -28,6 +28,7 @@
 
     <!-- Main CSS File -->
     <link href="{{ asset('fe/assets/css/main.css') }}" rel="stylesheet">
+    @stack('css')
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- =======================================================

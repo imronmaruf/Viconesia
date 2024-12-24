@@ -41,17 +41,28 @@ class ProfileController extends Controller
             'email' => 'nullable|email|max:255',
             'description' => 'nullable|string',
             'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'portfolio_file' => 'nullable|mimes:pdf,doc,docx|max:2048',
         ]);
 
         // Mulai transaksi database
         DB::beginTransaction();
         try {
             // Persiapan data untuk disimpan
-            $data = $request->only(['company_name', 'address', 'maps', 'instagram_link', 'whatsapp_link', 'phone_number', 'email', 'description']);
+            $data = $request->only(['company_name', 'address', 'maps', 'instagram_link', 'whatsapp_link', 'phone_number', 'email', 'description', 'portfolio_file']);
 
             // Cek apakah ada file logo yang diunggah
             if ($request->hasFile('logo_path')) {
                 $data['logo_path'] = $request->file('logo_path')->store('logo', 'public');
+            }
+
+            // Cek apakah ada file company profile yang diunggah
+            if ($request->hasFile('portfolio_file')) {
+                // Tentukan nama file custom
+                $file = $request->file('portfolio_file');
+                $fileName = 'company_profile_viconesia.' . $file->getClientOriginalExtension();
+
+                // Simpan file dengan nama khusus
+                $data['portfolio_file'] = $file->storeAs('portfolio', $fileName, 'public');
             }
 
             // Simpan data ke tabel profiles
@@ -60,12 +71,12 @@ class ProfileController extends Controller
             // Commit transaksi jika berhasil
             DB::commit();
             // Set pesan sukses di session
-            Session::flash('success', 'Profile added successfully!');
+            Session::flash('success', 'Berhasil menambahkan profile!');
         } catch (\Exception $e) {
             // Rollback transaksi jika ada error
             DB::rollBack();
-            // Set pesan error di session   z
-            Session::flash('error', 'Failed to add profile. Please try again.');
+            // Set pesan error di session
+            Session::flash('error', 'Gagal menambahkan profile: ' . $e->getMessage());
         }
         // Redirect kembali ke halaman sebelumnya
         return redirect()->back();
@@ -84,6 +95,7 @@ class ProfileController extends Controller
                 'email' => 'nullable|email|max:255',
                 'description' => 'nullable|string',
                 'logo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'portfolio_file' => 'nullable|file|mimes:pdf',
             ]);
 
             DB::beginTransaction();
@@ -112,14 +124,30 @@ class ProfileController extends Controller
                 $logoPath = $request->file('logo_path')->store('logo', 'public');
                 $data['logo_path'] = $logoPath;
             }
+
+            // Proses upload company profile
+            if ($request->hasFile('portfolio_file')) {
+                // Hapus file lama jika ada
+                if ($profile->portfolio_file) {
+                    Storage::disk('public')->delete($profile->portfolio_file);
+                }
+                // Tentukan nama file custom
+                $file = $request->file('portfolio_file');
+                $fileName = 'company_profile_viconesia.' . $file->getClientOriginalExtension(); // Menentukan nama file
+
+                // Simpan file baru dengan nama khusus
+                $portfolioFilePath = $file->storeAs('portfolio', $fileName, 'public');
+                $data['portfolio_file'] = $portfolioFilePath;
+            }
+
             // Update profile
             $profile->update($data);
             DB::commit();
-            Session::flash('success', 'Profile updated successfully.');
+            Session::flash('success', 'Profile Berhasil diupdate.');
             return redirect()->route('be/profile.index');
         } catch (\Exception $e) {
             DB::rollBack();
-            Session::flash('error', 'Failed to update profile: ' . $e->getMessage());
+            Session::flash('error', 'Gagal mengupdate profile: ' . $e->getMessage());
             return redirect()->back()->withErrors($e->getMessage());
         }
     }

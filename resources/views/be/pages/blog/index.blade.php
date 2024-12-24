@@ -55,7 +55,7 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Slug</th>
-                                <th style="width: 37%;">Konten</th>
+                                {{-- <th style="width: 37%;">Konten</th> --}}
                                 <th>Gambar</th>
                                 <th style="width: 3%;">Status</th>
                                 <th>Action</th>
@@ -68,7 +68,7 @@
                                     <td>{{ $data->title }}</td>
                                     <td>{{ $data->slug }}</td>
                                     {{-- <td>{!! $data->content !!}</td> --}}
-                                    <td>{!! Str::limit(strip_tags($data->content), 200, '...') !!}</td>
+                                    {{-- <td>{!! Str::limit(strip_tags($data->content), 200, '...') !!}</td> --}}
 
                                     <td class="text-center">
                                         @if ($data->image_path)

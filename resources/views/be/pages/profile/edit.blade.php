@@ -51,7 +51,7 @@
                         </div>
 
                         <!-- Address -->
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Alamat</label>
                                 <input type="text" name="address"
@@ -64,7 +64,7 @@
                         </div>
 
                         <!-- Phone Number -->
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Nomor Telephone</label>
                                 <input type="number" name="phone_number"
@@ -76,6 +76,63 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <!-- Phone Number -->
+                        {{-- <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Nomor Telephone</label>
+                                <input type="file" name="portfolio_file"
+                                    class="form-control @error('portfolio_file') is-invalid @enderror"
+                                    value="{{ old('portfolio_file', $profile->portfolio_file) }}">
+
+                                @if ($profile->portfolio_file)
+                                    <div class="mt-3">
+                                        <h5>Preview File:</h5>
+                                        <!-- Jika file adalah gambar -->
+                                        @if (in_array(pathinfo($profile->portfolio_file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
+                                            <img src="{{ asset('storage/' . $profile->portfolio_file) }}"
+                                                alt="Preview Image" class="img-fluid" width="200">
+                                            <!-- Jika file adalah PDF -->
+                                        @elseif (pathinfo($profile->portfolio_file, PATHINFO_EXTENSION) == 'pdf')
+                                            <embed src="{{ asset('storage/' . $profile->portfolio_file) }}"
+                                                type="application/pdf" width="200" height="300">
+                                        @else
+                                            <a href="{{ asset('storage/' . $profile->portfolio_file) }}"
+                                                target="_blank">Download File</a>
+                                        @endif
+                                    </div>
+                                @endif
+
+                                @error('portfolio_file')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div> --}}
+
+                        <!-- Phone Number -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Nomor Telephone</label>
+                                <input type="file" name="portfolio_file"
+                                    class="form-control @error('portfolio_file') is-invalid @enderror"
+                                    value="{{ old('portfolio_file', $profile->portfolio_file) }}">
+
+                                @if ($profile->portfolio_file)
+                                    <div class="mt-2">
+                                        {{-- <h5>Preview File:</h5> --}}
+                                        <!-- Link untuk melihat file PDF -->
+                                        <a href="{{ asset('storage/' . $profile->portfolio_file) }}" target="_blank">Lihat
+                                            File PDF</a>
+                                    </div>
+                                @endif
+
+                                @error('portfolio_file')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+
 
                         <!-- Email -->
                         <div class="col-md-4">
@@ -146,7 +203,8 @@
                             </div>
                             <!-- Image Preview -->
                             <div class="mb-3">
-                                <img id="logoPreview" class="img-fluid border" alt="Logo Preview" style="max-height: 120px;"
+                                <img id="logoPreview" class="img-fluid border" alt="Logo Preview"
+                                    style="max-height: 120px;"
                                     src="{{ $profile->logo_path ? asset('storage/' . $profile->logo_path) : '' }}">
                             </div>
                         </div>

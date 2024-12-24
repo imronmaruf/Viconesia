@@ -33,9 +33,11 @@ use App\Http\Controllers\be\UserSettingAccountController;
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/contact', [LandingController::class, 'contactIndex'])->name('landing.contactIndex');
 Route::get('/about', [LandingController::class, 'aboutIndex'])->name('landing.aboutIndex');
-Route::get('/service', [LandingController::class, 'serviceIndex'])->name('landing.serviceIndex');
+Route::get('/product', [LandingController::class, 'productIndex'])->name('landing.productIndex');
 Route::get('/testimonial', [LandingController::class, 'testimonialIndex'])->name('landing.testimonialIndex');
 Route::get('/blog', [LandingController::class, 'blogIndex'])->name('landing.blogIndex');
+Route::get('/blog/{slug}', [LandingController::class, 'blogDetail'])->name('landing.blogDetail');
+
 
 Auth::routes();
 

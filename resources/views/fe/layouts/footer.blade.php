@@ -3,63 +3,47 @@
     <div class="footer-top">
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">AgriCulture</span>
+                <!-- About Section -->
+                <div class="col-lg-8 col-md-8 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center mb-3">
+                        <span class="sitename">{{ $profile->company_name }}</span>
                     </a>
-                    <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                    <div class="footer-contact">
+                        <p>{{ $profile->address }}</p>
+                        <p class="mt-3"><strong>Phone:</strong> +{{ $profile->phone_number }}</p>
+                        <p><strong>Email:</strong> {{ $profile->email }}</p>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
+                <!-- Useful Links Section -->
+                <div class="col-lg-4 col-md-4 footer-links">
                     <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                    <ul class="list-unstyled d-flex flex-wrap">
+                        <li class="w-50"><a href="/">Home</a></li>
+                        <li class="w-50"><a href="/about">About us</a></li>
+                        <li class="w-50"><a href="/product">Product</a></li>
+                        <li class="w-50"><a href="/testimonial">Testimonial</a></li>
+                        <li class="w-50"><a href="/blog">Blog</a></li>
+                        <li class="w-50"><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
+
+
+
+                {{-- <!-- Services Section -->
+                <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Services</h4>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li><a href="#">Web Design</a></li>
                         <li><a href="#">Web Development</a></li>
                         <li><a href="#">Product Management</a></li>
                         <li><a href="#">Marketing</a></li>
                         <li><a href="#">Graphic Design</a></li>
                     </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
-                    <ul>
-                        <li><a href="#">Molestiae accusamus iure</a></li>
-                        <li><a href="#">Excepturi dignissimos</a></li>
-                        <li><a href="#">Suscipit distinctio</a></li>
-                        <li><a href="#">Dilecta</a></li>
-                        <li><a href="#">Sit quas consectetur</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nobis illum</h4>
-                    <ul>
-                        <li><a href="#">Ipsam</a></li>
-                        <li><a href="#">Laudantium dolorum</a></li>
-                        <li><a href="#">Dinera</a></li>
-                        <li><a href="#">Trodelas</a></li>
-                        <li><a href="#">Flexo</a></li>
-                    </ul>
-                </div>
-
+                </div> --}}
             </div>
+
         </div>
     </div>
 
@@ -69,7 +53,7 @@
 
             <div class="d-flex flex-column align-items-center align-items-lg-start">
                 <div>
-                    © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+                    © Copyright <strong><span>{{ $profile->company_name }}</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
                     <!-- All the links in the footer should remain intact. -->
@@ -82,10 +66,10 @@
             </div>
 
             <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://wa.me/{{ $profile->whatsapp_link }}" target="__blank"><i
+                        class="bi bi-whatsapp"></i></a>
+                <a href="https://www.instagram.com/{{ $profile->instagram_link }}" target="__blank"><i
+                        class="bi bi-instagram"></i></a>
             </div>
 
         </div>

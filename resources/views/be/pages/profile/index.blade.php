@@ -99,6 +99,13 @@
                                                 <strong>{{ $profile->whatsapp_link }}</strong>
                                             </a>
                                         </div>
+
+                                        <div>
+                                            <i class="ti ti-file-type-pdf icon me-2 text-secondary"></i>
+
+                                            <a href="{{ asset('storage/' . $profile->portfolio_file) }}"
+                                                target="_blank"><strong>Portfolio</strong></a>
+                                        </div>
                                     </div>
                                 </div>
 

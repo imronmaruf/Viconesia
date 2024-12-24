@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('logo_path')->nullable();
+            $table->text('portfolio_file')->nullable();
             $table->text('description')->nullable();
             $table->text('address')->nullable();
             $table->text('maps')->nullable();

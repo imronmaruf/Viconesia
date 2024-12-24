@@ -13,6 +13,7 @@ class Profile extends Model
     protected $fillable = [
         'company_name',
         'logo_path',
+        'portfolio_file',
         'description',
         'address',
         'maps',

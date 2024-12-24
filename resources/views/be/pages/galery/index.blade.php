@@ -65,6 +65,7 @@
                             <table class="table table-vcenter card-table table-striped table-bordered">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th width="50">
                                             <input type="checkbox" id="select-all" class="form-check-input">
                                         </th>
@@ -76,6 +77,8 @@
                                 <tbody>
                                     @foreach ($galeries as $gallery)
                                         <tr>
+                                            <td>{{ $loop->iteration }}</td>
+
                                             <td>
                                                 <input type="checkbox" name="selected[]" value="{{ $gallery->id }}"
                                                     class="form-check-input gallery-checkbox">

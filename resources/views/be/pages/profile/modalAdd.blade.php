@@ -42,7 +42,7 @@
                         </div>
 
                         <!-- Address -->
-                        <div class="col-sm-4 col-md-6">
+                        <div class="col-sm-3 col-md-4">
                             <div class="mb-3">
                                 <label for="address" class="form-label">Alamat</label>
                                 <input type="text" name="address" id="address"
@@ -59,13 +59,28 @@
 
 
                         <!-- Phone Number -->
-                        <div class="col-sm-4 col-md-6">
+                        <div class="col-sm-3 col-md-4">
                             <div class="mb-3">
                                 <label for="phone_number" class="form-label">Nomor Telephone </label>
                                 <input type="number" name="phone_number" id="phone_number"
                                     class="form-control @error('phone_number') is-invalid @enderror"
                                     placeholder="Masukkan Nomor Telephone" value="{{ old('phone_number') }}">
                                 @error('phone_number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Portfolio -->
+                        <div class="col-sm-3 col-md-4">
+                            <div class="mb-3">
+                                <label for="portfolio_file" class="form-label">File Company Profile </label>
+                                <input type="file" name="portfolio_file" id="portfolio_file"
+                                    class="form-control @error('portfolio_file') is-invalid @enderror"
+                                    value="{{ old('portfolio_file') }}">
+                                @error('portfolio_file')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

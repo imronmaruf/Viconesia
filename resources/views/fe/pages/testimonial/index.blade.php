@@ -20,9 +20,72 @@
             </nav>
         </div>
     </div><!-- End Page Title -->
+    <section class="testimonials-12 testimonials section" id="testimonials">
+        <!-- Section Title -->
+        <div class="container section-title " data-aos="fade-up">
+            <h2>TESTIMONIALS</h2>
+            <p>Necessitatibus eius consequatur</p>
+        </div><!-- End Section Title -->
+
+        <div class="testimonial-wrap">
+            <div class="container">
+                <div class="row">
+                    @foreach ($testimonials as $data)
+                        <div class="col-md-6 mb-4 mb-md-4">
+                            <div class="testimonial">
+                                <img src="{{ $data->photo_path ? asset('storage/' . $data->photo_path) : asset('fe/assets/img/testimonials/testimonials-1.jpg') }}"
+                                    alt="Testimonial author">
+                                <blockquote>
+                                    <p>
+                                        “ {!! $data->testimonial !!} ”
+                                    </p>
+                                </blockquote>
+                                <p class="client-name">{{ $data->name }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonials-pagination" class="blog-pagination section">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <ul>
+                    <!-- Tautan ke halaman sebelumnya -->
+                    @if ($testimonials->onFirstPage())
+                        <li class="disabled"><span><i class="bi bi-chevron-left"></i></span></li>
+                    @else
+                        <li><a href="{{ $testimonials->previousPageUrl() }}#testimonials"><i
+                                    class="bi bi-chevron-left"></i></a></li>
+                    @endif
+
+                    <!-- Tautan untuk semua halaman -->
+                    @for ($i = 1; $i <= $testimonials->lastPage(); $i++)
+                        @if ($i == $testimonials->currentPage())
+                            <li><a href="#" class="active">{{ $i }}</a></li>
+                        @else
+                            <li><a href="{{ $testimonials->url($i) }}#testimonials">{{ $i }}</a></li>
+                        @endif
+                    @endfor
+
+                    <!-- Tautan ke halaman berikutnya -->
+                    @if ($testimonials->hasMorePages())
+                        <li><a href="{{ $testimonials->nextPageUrl() }}#testimonials"><i
+                                    class="bi bi-chevron-right"></i></a></li>
+                    @else
+                        <li class="disabled"><span><i class="bi bi-chevron-right"></i></span></li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-12 testimonials section" id="testimonials">
+    {{-- <section class="testimonials-12 testimonials section" id="testimonials">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>TESTIMONIALS</h2>
@@ -91,10 +154,10 @@
                 </div>
             </div>
         </div>
-    </section><!-- /Testimonials Section -->
+    </section><!-- /Testimonials Section --> --}}
 
     <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section light-background">
+    {{-- <section id="call-to-action" class="call-to-action section light-background">
 
         <div class="content">
             <div class="container">
@@ -123,5 +186,5 @@
                 </div>
             </div>
         </div>
-    </section><!-- /Call To Action Section -->
+    </section><!-- /Call To Action Section --> --}}
 @endsection

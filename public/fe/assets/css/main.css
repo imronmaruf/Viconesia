@@ -995,7 +995,7 @@ section,
 }
 
 .services .content .service-item .service-item-icon img {
-    width: 50px;
+    width: 200px;
 }
 
 .services .content .service-item .service-item-icon:before {
@@ -1408,15 +1408,15 @@ section,
     margin-bottom: 30px;
 }
 
-.btn-cta {
+.btn-cta-dw {
     text-transform: uppercase;
     font-size: 14px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30px;
     padding-right: 30px;
-    background-color: var(--contrast-color);
-    color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
     border-radius: 6px;
 }
 
@@ -1429,6 +1429,30 @@ section,
     padding-right: 30px;
     background-color: var(--contrast-color);
     color: var(--accent-color);
+    border-radius: 6px;
+}
+
+.btn-cta {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: var(--contrast-color);
+    color: var(--accent-color);
+    border-radius: 6px;
+}
+
+.about-3 .btn-cta-dw {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
     border-radius: 6px;
 }
 
@@ -1670,6 +1694,13 @@ section,
 .blog-details .post-img {
     margin: -30px -30px 20px -30px;
     overflow: hidden;
+}
+
+.blog-details .post-img img {
+    width: 100%; /* Gambar akan menyesuaikan dengan lebar elemen induk */
+    height: auto; /* Menjaga aspek rasio gambar */
+    display: block; /* Menghapus margin default inline gambar */
+    object-fit: cover; /* Opsional: Mengisi elemen dengan proporsi yang baik */
 }
 
 .blog-details .title {
