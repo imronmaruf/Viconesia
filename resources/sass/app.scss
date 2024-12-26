@@ -1,8 +1,19 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// // Fonts
+// @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-@import 'variables';
+// // Variables
+// @import 'variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// // Bootstrap
+// @import 'bootstrap/scss/bootstrap';
+// @import "@sweetalert2/theme-dark/dark.scss";
+
+.col-no {
+    width: 5%; /* Sesuaikan dengan kebutuhan */
+    text-align: center;
+}
+
+.col-action {
+    width: 15%; /* Sesuaikan dengan kebutuhan */
+    text-align: center;
+}
