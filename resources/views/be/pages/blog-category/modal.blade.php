@@ -38,11 +38,11 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                        Cancel
+                        Batal
                     </a>
                     <button type="submit" class="btn btn-primary ms-auto">
-                        <i class="ti ti-plus"></i>
-                        Add
+                        <i class="ti ti-checklist icon me-2"></i>
+                        Tambah
                     </button>
                 </div>
             </form>
@@ -95,7 +95,7 @@
                         <button type="button" class="btn btn-link link-secondary"
                             data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary ms-auto gap-1">
-                            <i class="ti ti-check"></i> Save Changes
+                            <i class="ti ti-checklist icon me-2"></i> Save Changes
                         </button>
                     </div>
                 </form>

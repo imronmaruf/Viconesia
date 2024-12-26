@@ -91,9 +91,15 @@
                         <div class="col-12 col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Password Baru</label>
-                                <input type="password" name="new_password"
-                                    class="form-control @error('new_password') is-invalid @enderror"
-                                    placeholder="Kosongkan jika tidak ingin mengganti">
+                                <div class="input-group">
+                                    <input type="password" name="new_password" id="new_password"
+                                        class="form-control @error('new_password') is-invalid @enderror"
+                                        placeholder="Kosongkan jika tidak ingin mengganti">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="togglePassword('new_password')">
+                                        <i class="ti ti-eye"></i>
+                                    </button>
+                                </div>
                                 @error('new_password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -103,15 +109,23 @@
                         <div class="col-12 col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Konfirmasi Password Baru</label>
-                                <input type="password" name="new_password_confirmation" class="form-control"
-                                    placeholder="Ulangi password baru">
+                                <div class="input-group">
+                                    <input type="password" name="new_password_confirmation" id="new_password_confirmation"
+                                        class="form-control" placeholder="Ulangi password baru">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="togglePassword('new_password_confirmation')">
+                                        <i class="ti ti-eye"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+
+                    <button type="submit" class="btn btn-primary"><i class="ti ti-checklist me-1 icon"></i>Simpan
+                        Perubahan</button>
                 </div>
             </form>
         </div>
@@ -120,6 +134,19 @@
 
 @push('js')
     <script>
-        // Anda dapat menambahkan JavaScript tambahan di sini
+        // Function to toggle password visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const eyeIcon = input.nextElementSibling.querySelector('i');
+            if (input.type === "password") {
+                input.type = "text";
+                eyeIcon.classList.remove('ti-eye');
+                eyeIcon.classList.add('ti-eye-off');
+            } else {
+                input.type = "password";
+                eyeIcon.classList.remove('ti-eye-off');
+                eyeIcon.classList.add('ti-eye');
+            }
+        }
     </script>
 @endpush

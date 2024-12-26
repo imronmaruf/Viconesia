@@ -9,8 +9,11 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('fe/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('fe/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ $profile->logo_path ? asset('storage/' . $profile->logo_path) : asset('default/logo.png') }}"
+        rel="icon">
+    <link href="{{ $profile->logo_path ? asset('storage/' . $profile->logo_path) : asset('default/logo.png') }}"
+        rel="apple-touch-icon">
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -30,7 +33,7 @@
     <link href="{{ asset('fe/assets/css/main.css') }}" rel="stylesheet">
     @stack('css')
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     <!-- =======================================================
   * Template Name: AgriCulture
   * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
@@ -53,7 +56,7 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('fe/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('fe/assets/vendor/php-email-form/validate.js') }}"></script>
+    {{-- <script src="{{ asset('fe/assets/vendor/php-email-form/validate.js') }}"></script> --}}
     <script src="{{ asset('fe/assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('fe/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('fe/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>

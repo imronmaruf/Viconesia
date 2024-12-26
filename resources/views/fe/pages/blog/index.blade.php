@@ -1,7 +1,7 @@
 @extends('fe.layouts.main')
 
 @push('title')
-    Blog
+    Blog - {{ $profile->company_name }}
 @endpush
 
 @section('content')

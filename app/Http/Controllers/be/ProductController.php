@@ -74,7 +74,7 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
         if (!$data) {
-            return response()->json(['error' => 'User not found'], 404);
+            return response()->json(['error' => 'Product not found'], 404);
         }
         return response()->json($data, 200);
     }

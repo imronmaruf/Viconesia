@@ -39,7 +39,12 @@ Route::get('/blog', [LandingController::class, 'blogIndex'])->name('landing.blog
 Route::get('/blog/{slug}', [LandingController::class, 'blogDetail'])->name('landing.blogDetail');
 
 
-Auth::routes();
+
+Auth::routes(['register' => false]);
+
+Route::get('/register', function () {
+    return redirect('/login'); // Arahkan ke login
+});
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -141,14 +146,4 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/update/{id}', [GaleryController::class, 'update'])->name('be/galery.update');
         Route::delete('/destroy/{id}', [GaleryController::class, 'destroy'])->name('be/galery.destroy');
     });
-
-
-    // Route::prefix('data-user')->middleware('can:admin-only')->group(function () {
-    //     Route::get('/', [UserController::class, 'index'])->name('data-user.index');
-    //     // Route::get('/create', [UserController::class, 'create'])->name('data-user.create');
-    //     // Route::post('/store', [UserController::class, 'store'])->name('data-user.store');
-    //     // Route::get('/edit/{id}', [UserController::class, 'edit'])->name('data-user.edit');
-    //     // Route::put('/update/{id}', [UserController::class, 'update'])->name('data-user.update');
-    //     // Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('data-user.destroy');
-    // });
 });

@@ -1,7 +1,7 @@
 @extends('fe.layouts.main')
 
 @push('title')
-    Testimonial
+    Testimonial - {{ $profile->company_name }}
 @endpush
 @push('css')
 @endpush

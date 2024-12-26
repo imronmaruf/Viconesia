@@ -122,7 +122,7 @@
 
             <div class="text-end mt-3">
                 <button type="submit" class="btn btn-primary">
-                    <i class="ti ti-device-floppy icon"></i> Simpan Semua Data
+                    <i class="ti ti-checklist icon"></i> Simpan Semua Data
                 </button>
             </div>
         </form>

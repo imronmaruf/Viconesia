@@ -7,12 +7,12 @@
 @section('content')
     <div class="page page-center">
         <div class="container container-tight py-4">
-            <div class="text-center mb-4">
+            {{-- <div class="text-center mb-4">
                 <a href="." class="navbar-brand navbar-brand-autodark">
-                    <img src="{{ asset('be/static/logo.svg') }}" width="110" height="32" alt="Tabler"
+                    <img src="{{ asset('storage/' . $profile->logo_path) }} width="110" height="32" alt="Reset"
                         class="navbar-brand-image">
                 </a>
-            </div>
+            </div> --}}
 
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
@@ -54,7 +54,7 @@
                 </div>
             </form>
             <div class="text-center text-secondary mt-3">
-                Forget it, <a href="./sign-in.html">send me back</a> to the sign in screen.
+                Forget it, <a href="{{ route('login') }}">send me back</a> to the sign in screen.
             </div>
         </div>
     </div>

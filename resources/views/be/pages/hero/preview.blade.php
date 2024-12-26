@@ -78,21 +78,21 @@
                             @endforeach
                         </div>
 
-                        <!-- Carousel Items -->
                         <div class="carousel-inner">
                             @foreach ($dataHero as $key => $data)
                                 <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
                                     <img class="d-block w-100" alt="Hero Image"
                                         src="{{ asset('storage/' . $data->hero_image) }}">
+
+                                    <!-- Carousel Caption -->
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3>{{ $data->title_hero }}</h3>
+                                        <p>{{ $data->description }}</p>
+                                    </div>
                                 </div>
                             @endforeach
-
-                            <div class="carousel-caption-background d-none d-md-block"></div>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>{{ $data->title_hero }}</h3>
-                                <p>{{ $data->description }}</p>
-                            </div>
                         </div>
+
 
                         <!-- Controls -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#carousel-indicators"

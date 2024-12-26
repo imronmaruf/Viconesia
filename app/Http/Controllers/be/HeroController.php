@@ -32,7 +32,7 @@ class HeroController extends Controller
     {
         $data = Hero::find($id);
         if (!$data) {
-            return response()->json(['error' => 'User not found'], 404);
+            return response()->json(['error' => 'Hero not found'], 404);
         }
         return response()->json($data, 200);
     }
@@ -171,7 +171,6 @@ class HeroController extends Controller
             $hero->delete();
 
             DB::commit();
-
             // Menampilkan pesan sukses
             session()->flash('success', 'Hero Berhasil Dihapus');
             return redirect()->route('be/hero.index');

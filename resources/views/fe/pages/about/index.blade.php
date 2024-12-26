@@ -1,7 +1,7 @@
 @extends('fe.layouts.main')
 
 @push('title')
-    About
+    About - {{ $profile->company_name }}
 @endpush
 @push('css')
     <style>

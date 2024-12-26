@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\be;
 
+use App\Models\Product;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\BlogPost;
+use App\Models\Teams;
 
 class DashboardController extends Controller
 {
@@ -26,6 +29,9 @@ class DashboardController extends Controller
     public function index()
     {
         // $profile = Profile::first();
-        return view('be.index');
+        $productCount = Product::count();
+        $teamsCount = Teams::count();
+        $blogCount = BlogPost::count();
+        return view('be.index', compact('productCount', 'teamsCount', 'blogCount'));
     }
 }

@@ -38,7 +38,15 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        // Tambahkan pengalihan jika ada permintaan ke /register
+        if (request()->is('register')) {
+            redirect('/login')->send(); // Redirect langsung ke halaman login
+        }
     }
+
+
+
 
     /**
      * Get a validator for an incoming registration request.
